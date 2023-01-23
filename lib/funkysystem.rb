@@ -140,7 +140,7 @@ module FunkySystem
 					case fd
 					when fps[:stdin].writer
 						size = fd.syswrite(stdin)
-						stdin = stdin[size..-1]
+						stdin = stdin.byteslice(size..)
 						if stdin.empty?
 							fd.close
 							out_fds = []
